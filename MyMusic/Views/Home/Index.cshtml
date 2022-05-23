@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<BraniViewModel>
+
+@{
+    ViewBag.Title = "Brani Index";
+}
+
+<h1 class="display-4">Lista Brani</h1>
+
+<p class="text-right">@Html.ActionLink("Aggiungi nuovo brano","Aggiungi") </p>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Titolo)</th>
+        <th>@Html.DisplayNameFor(model => model.Band)</th>
+        <th>@Html.DisplayNameFor(model => model.Album)</th>
+        <th>@Html.DisplayNameFor(model => model.AnnoUscita)</th>
+        <th>@Html.DisplayNameFor(model => model.Durata)</th>
+        <th>@Html.DisplayNameFor(model => model.Genere)</th>
+
+    </tr>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var brano in Model)
+        {
+            <tr>
+                <td>@brano.Titolo</td>
+                <td>@brano.Band</td>
+                <td>@brano.Album</td>
+                <td>@brano.AnnoUscita</td>
+                <td>@brano.Durata</td>
+                <td>@brano.Genere</td>
+                <td>
+                    @Html.ActionLink("Modifica","Modifica",new {ID = brano.IDBrano})
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="5" class="text-center"> Nessun brano disponibile</td>
+        </tr>
+    }
+</table>
