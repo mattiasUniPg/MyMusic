@@ -1,0 +1,60 @@
+﻿@model BandViewModel;
+
+@{
+    ViewBag.Title = "Hai Aggiunto una Band";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div roll="alert" class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div>Edit Brano:</div>
+        <hr>
+        @Html.HiddenFor(model => model.IDBand) @* Per nascondere l'ID' *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeBand, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeBand)
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Immagine, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Immagine)
+            </div>
+        </div>
+         <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genere, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Genere)
+            </div>
+        </div>
+         <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AnnoUscitaAlbum, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AnnoUscitaAlbum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salva" class="btn btn-primary"/>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Indietro","Index")
+</div>

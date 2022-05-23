@@ -1,0 +1,61 @@
+﻿@model ArtistaViewModel;
+
+@{
+    ViewBag.Title = "Hai Aggiunto un Artista";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div roll="alert" class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div>Edit Artista:</div>
+        <hr>
+        @Html.HiddenFor(model => model.IDArtista) @* Per nascondere l'ID' *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome)
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cognome, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cognome)
+            </div>
+        </div>
+         <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Alias, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Alias)
+            </div>
+        </div>
+         <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BandMusicale, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BandMusicale)
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tipo)
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Indietro","Index")
+</div>
