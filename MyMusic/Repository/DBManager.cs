@@ -10,7 +10,7 @@ namespace MyMusic.Repository
         public List<BraniViewModel> GetAllBrani()
         {
             List<BraniViewModel> braniList = new List<BraniViewModel>();
-            string sql = @"SELECT Titolo, Band, Album, AnnoUscita, Durata, Genere 
+            string sql = @"SELECT * 
                         FROM Brani";
 
             using var connection = new SqlConnection(connectionString);
